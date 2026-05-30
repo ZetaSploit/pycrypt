@@ -534,9 +534,8 @@ results.sarif
 # Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/weak-crypto-sast.git
-
-cd weak-crypto-sast
+git clone https://github.com/ZetaSploit/pycrypt.git
+cd pycrypt
 ```
 
 ---
@@ -546,14 +545,14 @@ cd weak-crypto-sast
 ## Linux / macOS
 
 ```bash
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate
 ```
 
 ## Windows
 
 ```powershell
-python -m venv venv
+python3 -m venv venv
 venv\Scripts\activate
 ```
 
@@ -562,7 +561,7 @@ venv\Scripts\activate
 # Install Dependencies
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ---
@@ -587,7 +586,7 @@ networkx
 # Scan a Project
 
 ```bash
-python -m cli.main scan ./example_project
+python3 -m cli.main scan ./example_project
 ```
 
 ---
@@ -595,7 +594,7 @@ python -m cli.main scan ./example_project
 # Scan Specific File Types
 
 ```bash
-python -m cli.main scan ./project --lang python
+python3 -m cli.main scan ./project --lang python
 ```
 
 ---
@@ -603,7 +602,7 @@ python -m cli.main scan ./project --lang python
 # Export SARIF
 
 ```bash
-python -m cli.main scan ./project --format sarif
+python3 -m cli.main scan ./project --format sarif
 ```
 
 ---
@@ -611,7 +610,7 @@ python -m cli.main scan ./project --format sarif
 # Export JSON
 
 ```bash
-python -m cli.main scan ./project --format json
+python3 -m cli.main scan ./project --format json
 ```
 
 ---
@@ -619,7 +618,7 @@ python -m cli.main scan ./project --format json
 # Run Specific Rules
 
 ```bash
-python -m cli.main scan ./project --rules weak-md5,aes-ecb
+python3 -m cli.main scan ./project --rules weak-md5,aes-ecb
 ```
 
 ---
@@ -627,7 +626,7 @@ python -m cli.main scan ./project --rules weak-md5,aes-ecb
 # Enable Debug Logging
 
 ```bash
-python -m cli.main scan ./project --debug
+python3 -m cli.main scan ./project --debug
 ```
 
 ---
