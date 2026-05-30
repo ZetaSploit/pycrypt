@@ -124,9 +124,8 @@ The engine is designed to detect vulnerabilities such as:
 ```text
 sast/
 ├── parser/
-│   ├── treesitter_loader.py
+│   ├── treesitter_query.py
 │   ├── ast_builder.py
-│   ├── query_engine.py
 │   └── language_registry.py
 │
 ├── ir/
