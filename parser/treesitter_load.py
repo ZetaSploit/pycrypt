@@ -1,6 +1,7 @@
-from tree_sitter import Parser, Language
+from tree_sitter import Parser, Language, Query, QueryCursor
 import tree_sitter_python as tspython
 from pathlib import Path
+import hashlib
 
 
 PY_LANGUAGE = Language(tspython.language())
@@ -25,7 +26,18 @@ class FileParser:
         source = self.read_file(path)
         return self.parse_source(source)
 
-file_parser1 = FileParser()
+class QueryHandler(FileParser):
+    def __init__(self):
+        self.file_parser = FileParser()
+
+    def get_tree(self, file):
+        tree = self.file_parser.parse_file(file)
+
+        print(tree.root_node.type)
+
+        return tree
+
+file_parser1 = QueryHandler()
 tree = file_parser1.parse_file("test.py")
-print(tree.root_node)
+print(tree.__sizeof__)
 
