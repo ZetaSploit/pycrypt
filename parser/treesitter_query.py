@@ -1,4 +1,4 @@
-from tree_sitter import Parser, Language
+from tree_sitter import Parser, Language, Query, QueryCursor
 import tree_sitter_python as tspython
 from pathlib import Path
 
@@ -35,10 +35,20 @@ class QueryHandler:
 
         print("Root node:", tree.root_node.type)
 
+        for child in tree.root_node.children:
+            print("Child:", child.type)
+
         return tree
 
+    def print_tree(self, node, indent=0):
+        print("  " * indent + node.type)
+
+        for child in node.children:
+            self.print_tree(child, indent + 1)
+        
 
 query_handler = QueryHandler()
 
 tree = query_handler.get_tree("test.py")
+tree2 = query_handler.print_tree(tree.root_node)
 
