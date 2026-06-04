@@ -39,10 +39,9 @@ class QueryHandler:
         for child in node.children:
             self.print_tree(child, indent + 1)
         
+if __name__ == "__main__":
+    query_handler = QueryHandler()
 
-query_handler = QueryHandler()
-
-tree = query_handler.get_tree(ftp)
-query_handler.print_tree(tree.root_node)
-
+    tree = query_handler.get_tree(ftp)
+    query_handler.print_tree(tree.root_node)
 
