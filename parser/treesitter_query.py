@@ -1,4 +1,4 @@
-from tree_sitter import Parser, Language, Query, QueryCursor
+from tree_sitter import Parser, Language
 import tree_sitter_python as tspython
 from pathlib import Path
 
@@ -29,17 +29,9 @@ class FileParser:
 class QueryHandler:
     def __init__(self):
         self.file_parser = FileParser()
-        self.ftp = ftp
 
     def get_tree(self, ftp):
-        tree = self.file_parser.parse_file(ftp) #file
-
-        print("Root node:", tree.root_node.type)
-
-        for child in tree.root_node.children:
-            print("Child:", child.type)
-
-        return tree
+        return self.file_parser.parse_file(ftp)
 
     def print_tree(self, node, indent=0):
         print("  " * indent + node.type)
@@ -51,5 +43,6 @@ class QueryHandler:
 query_handler = QueryHandler()
 
 tree = query_handler.get_tree(ftp)
-tree2 = query_handler.print_tree(tree.root_node)
+query_handler.print_tree(tree.root_node)
+
 
