@@ -1,17 +1,20 @@
 from tree_sitter import Query, QueryCursor
 import tree_sitter_python as tspython
-import hashlib
 from treesitter_load import *
 
 
+qh = QueryHandler()
+tree = qh.get_tree(ftp)
+tree_print = qh.print_tree(tree.root_node)
+
 if __name__ == "__main__":
 
-    def run_query(tree_obj, query):
-        query_string = "(identifier) @function.name"
-        query = Query(PY_LANGUAGE, query_string)
-        qcursor = QueryCursor()
+    def run_query(tree):
+        query = Query(PY_LANGUAGE, "(identifier) @function.name")
 
-        for node, capture_name in qcursor.captures(query, tree.root_node):
+        cursor = QueryCursor(query)
 
+        for node in cursor.captures(tree.root_node):
+            print(node)
 
-    
+    run_query(tree)
