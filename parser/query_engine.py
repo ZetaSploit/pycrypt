@@ -1,20 +1,28 @@
 from tree_sitter import Query, QueryCursor
-import tree_sitter_python as tspython
 from treesitter_load import *
 
 
-qh = QueryHandler()
-tree = qh.get_tree(ftp)
-tree_print = qh.print_tree(tree.root_node)
+parser = FileParser()
+
+with open(ftp, "rb") as f:
+    source = f.read()
+
+tree = parser.parse_file(ftp)
+
+query = Query(
+    PY_LANGUAGE,
+    "(identifier) @function.name"
+)
 
 if __name__ == "__main__":
 
-    def run_query(tree):
-        query = Query(PY_LANGUAGE, "(identifier) @function.name")
-
+    def run_query(tree, source):
         cursor = QueryCursor(query)
 
-        for node in cursor.captures(tree.root_node):
-            print(node)
+        captures = cursor.captures(tree.root_node)
 
-    run_query(tree)
+        for node in captures["function.name"]:
+            text = source[node.start_byte:node.end_byte].decode("utf-8")
+            print(text)
+
+    run_query(tree, source)
