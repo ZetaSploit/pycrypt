@@ -1,0 +1,12 @@
+id: aes
+
+title: AES Usage
+
+severity: info
+
+message: AES is cryptographically a strong encryption and should be used.
+
+language: python
+
+query: |
+  (call) @call

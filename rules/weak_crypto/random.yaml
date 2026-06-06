@@ -1,0 +1,12 @@
+id: all-calls
+
+title: Function Call
+
+severity: info
+
+message: Function call detected.
+
+language: python
+
+query: |
+  (call) @call

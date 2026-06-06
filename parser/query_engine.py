@@ -23,6 +23,18 @@ if __name__ == "__main__":
 
         for node in captures["function.name"]:
             text = source[node.start_byte:node.end_byte].decode("utf-8")
-            print(text)
+
+            if text.lower() in {
+                    "md5",
+                    "sha1",
+                    "sha256",
+                    "sha512",
+                    "aes",
+                    "rsa",
+                    "des",
+                    "blowfish",
+            }:
+                print(text)
+
 
     run_query(tree, source)
