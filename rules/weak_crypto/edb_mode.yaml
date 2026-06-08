@@ -1,0 +1,12 @@
+id: aes-ecb-mode
+
+title: AES ECB Mode Usage
+
+severity: high
+
+message: ECB mode leaks data patterns and should not be used. Prefer GCM, CCM, or CBC with a random IV.
+
+language: python
+
+query: |
+  (call) @call
