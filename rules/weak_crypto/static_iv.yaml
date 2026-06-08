@@ -1,0 +1,11 @@
+id: static-iv
+
+title: Static Initialization Vector
+
+severity: high
+
+message: A static IV was detected. IVs should be random and unique for each encryption operation.
+
+language: python
+
+cwe: CWE-329
