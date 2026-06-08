@@ -1,0 +1,12 @@
+id: weak-rc4
+
+title: RC4 Usage
+
+severity: high
+
+message: RC4 is cryptographically broken and should not be used.
+
+language: python
+
+query: |
+  (call) @call
