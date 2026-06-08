@@ -1,0 +1,14 @@
+id: weak-sha1
+
+title: SHA1 Usage
+
+severity: high
+
+message: SHA1 is cryptographically broken for collision resistance and should not be used for security-sensitive purposes. Use SHA-256 or stronger algorithms instead.
+
+language: python
+
+cwe: CWE-327
+
+query: |
+  (call) @call
