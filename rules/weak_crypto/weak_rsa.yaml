@@ -1,0 +1,11 @@
+id: weak-rsa-key-size
+
+title: Weak RSA Key Size
+
+severity: high
+
+language: python
+
+cwe: CWE-326
+
+message: RSA key size is too small. Use at least 2048 bits.
