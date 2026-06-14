@@ -3,6 +3,9 @@ from treesitter_load import ftp
 
 LANGUAGES = {
     ".py": "python",
+    ".js": "javascript",
+    ".c": "C",
+    ".cpp": "C++"
 }
 
 def get_language_from_file(path: str) -> str | None:
